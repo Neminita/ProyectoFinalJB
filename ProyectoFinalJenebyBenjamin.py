@@ -23,31 +23,31 @@ while True:
 
         if OpMenu == 1:
             def mostrar_lista():
-                contador = 1  # Variable para rastrear el número actual a imprimir
+                contador = 1  
                 for i in range(filas):
                     for j in range(columnas):
                         if seleccionados[i][j]:
-                            print('x', end='\t')  # Imprimir 'x' si el número está seleccionado
+                            print('x', end='\t')  
                         else:
-                            print(contador, end='\t')  # Imprimir el número actual si no está seleccionado
-                        contador += 1  # Incrementar el contador para el siguiente número
-                    print()  # Imprimir una nueva línea al final de cada fila
+                            print(contador, end='\t')  
+                        contador += 1  
+                    print()  
 
             def marcar_numero(numero):
                 if numero < 1 or numero > filas * columnas:
                     print("Número inválido. Inténtalo nuevamente.")
                     return
-                fila = (numero - 1) // columnas  # Calcular la fila correspondiente al número seleccionado
-                columna = (numero - 1) % columnas  # Calcular la columna correspondiente al número seleccionado
-                seleccionados[fila][columna] = True  # Marcar el número como seleccionado
+                fila = (numero - 1) // columnas 
+                columna = (numero - 1) % columnas 
+                seleccionados[fila][columna] = True 
 
             while True:
-                mostrar_lista()  # Mostrar la lista actual
+                mostrar_lista()  
                 numero_seleccionado = int(input("Elija el asiento deseado "))
                 if numero_seleccionado == 0:
-                    seleccionados = [[False] * columnas for _ in range(filas)]  # Reiniciar la lista de selecciones
+                    seleccionados = [[False] * columnas for _ in range(filas)]  
                 else:
-                    marcar_numero(numero_seleccionado)  # Marcar el número seleccionado
+                    marcar_numero(numero_seleccionado)  
 
 
         if OpMenu == 2:
