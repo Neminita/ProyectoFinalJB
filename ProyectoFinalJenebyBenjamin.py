@@ -23,7 +23,8 @@ while True:
         print("1. Ver asientos disponibles.")
         print("2. Comprar asiento.")
         print("3. Anular vuelo.")
-        print("4. Salir.")
+        print("4. Cambiar Datos.")
+        print("5. Salir")
         OpMenu = int(input(""))
 
         if OpMenu == 1:
@@ -48,12 +49,27 @@ while True:
 
             while True:
                 mostrar_lista()  # Mostrar la lista actual
-                numero_seleccionado = int(input("Elija el asiento deseado "))
-                if numero_seleccionado == 0:
-                    seleccionados = [[False] * columnas for _ in range(filas)]  # Reiniciar la lista de selecciones
-                else:
-                    marcar_numero(numero_seleccionado)  # Marcar el número seleccionado
+                NumeroSeleccionado = int(input("Elija el asiento deseado: "))
 
+                if NumeroSeleccionado >= 1 and NumeroSeleccionado <= 30:
+                    print("Este asiento tiene un valor de: $",ANormal)
+                    print("Desea ese u otro?")
+                    print("1. SI")
+                    print("2. NO")
+                    SeleccionA = int(input(""))
+
+                if NumeroSeleccionado <= 31 and NumeroSeleccionado >= 42:
+                    print("Este asiento tiene un valor de: $",AVip)    
+                    print("Desea ese u otro?")
+                    print("1. SI")
+                    print("2. NO")
+                    SeleccionA = int(input(""))
+
+                    if SeleccionA == 1:
+                        break
+
+                    if SeleccionA == 2:
+                        NumeroSeleccionado == 0
 
         if OpMenu == 2:
             while True:
@@ -85,17 +101,17 @@ while True:
                     print("4. Otro")
                     BancoP = int(input(""))
 
-                    if BancoP <= 0 or BancoP >= 4:
+                    if BancoP <= 0 or BancoP >= 5:
                         print("Digite un numero valido")
 
-                    break
+                    
                 
                 except ValueError:
                         print("Digite algo valido")
                         continue            
 
         if OpMenu == 3:
-            numero_seleccionado == 0
+            NumeroSeleccionado == 0
             print("Vuelo anulado")
             VueloT = 0
 
@@ -103,9 +119,35 @@ while True:
             print("Cerrando sistema...")
             break
 
-        if OpMenu <= 0 or OpMenu >= 5:
+        if OpMenu == 5:
+            print("Digite su rut")
+            RutModificar = input("")
+            print("Digite el asiento comprado")
+            AsientoModificar = int(input(""))
+
+            if RutModificar == RutP and AsientoModificar == NumeroSeleccionado:
+                print("Que desea modificar?")
+                print("1. Nombre Pasajero")
+                print("2. Telefono Pasajero")
+                OpModificar = int(input(""))
+                
+                if OpModificar == 1:
+                    print("Digite el nombre deseado")
+                    NombreP == input("")
+
+                if OpModificar == 2:
+                    print("Digite su nuevo numero de telefono")
+                    NumeroP == input("")    
+
+            else:
+                print("Datos invalidos dentro de la base de datos")
+                
+        if OpMenu <= 0 or OpMenu >= 6:
             print("Digite una opcion valida")
+
+        print("Su total es de:")        
 
     except ValueError:
         print("Digite una opcion valida")
         continue
+
