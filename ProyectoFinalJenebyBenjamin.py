@@ -1,8 +1,3 @@
-print("Probando sincronización")
-print("Testeo 2.0")
-print("Testeo rama benja")
-
-
 ANormal = 78900
 AVip = 240000
 NombreP = ""
