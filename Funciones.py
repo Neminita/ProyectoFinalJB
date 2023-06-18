@@ -22,12 +22,13 @@ def Masientos():
                 print(f"{asiento:4}", end="")
         print("|")
 
+
 # Datos de usuario para ingresar en normal.
 
 
 def UsuarioNormal():
     print("Ingrese sus datos correspondientes. ")
-    RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
+    RutUs = str(input("Ingrese su rut sin guíon ni puntos: "))
     NomUs = str(input("Ingrese su nombre completo: "))
     TelefUs = int(input("Ingrese su teléfono de contacto: "))
     BancoUs = str(input("Ingrese el nombre de su banco: "))
@@ -44,6 +45,7 @@ def UsuarioNormal():
     else:
         descuento = 0
         print("El valor de éste pasaje es:", (ANormal))
+
 
 # Datos de usuario para ingresar en Vip.
 def UsuarioVip():
