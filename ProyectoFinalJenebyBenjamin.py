@@ -5,6 +5,7 @@ filas = 6
 columnas = 7
 ANormal = 78900
 AVip = 240000
+descuento = 0
 
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
 
@@ -26,17 +27,21 @@ def Masientos():
 def DatosUsuario():
     print("Ingrese sus datos correspondientes. ")
     RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
-    if RutUs != int:
-        print("Formato inválido")
     NomUs = str(input("Ingrese su nombre completo: "))
-    if NomUs != str:
-        print("Formato inválido.")
     TelefUs = int(input("Ingrese su teléfono de contacto: "))
-    if TelefUs != int:
-        print("Formato inválido.")
     BancoUs = str(input("Ingrese el nombre de su banco: "))
-    if BancoUs != str:
-        print("Formato inválido.")
+    if (
+        BancoUs == "BancoDuoc"
+        or "Bancoduoc"
+        or "bancoDuoc"
+        or "BancoDuoc"
+        or "BANCODUOC"
+        or "bancoduoc"
+    ):
+        descuento = (ANormal / 100) * 15
+        descuento2 = (AVip / 100) * 15
+    else:
+        descuento = 0
 
     # Primera interfaz de menú.
 
@@ -62,7 +67,6 @@ while True:
                             asientos[i][j] = "   X"
                             break
             if eleccion >= 1 and eleccion <= 30:
-                print(f"El valor de éste pasaje es: {ANormal}")
                 print(
                     """
             ¿Quisiera confirmar su compra?
@@ -73,10 +77,10 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
+                    print(f"El valor de éste pasaje es: {ANormal-descuento}")
                 else:
                     cont = 0
             elif eleccion > 30 and eleccion <= 42:
-                print(f"El valor de éste asiento VIP es: {AVip}")
                 print(
                     """
             ¿Quisiera confirmar su compra?
@@ -87,6 +91,7 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
+                    print(f"El valor de éste asiento VIP es: {AVip-descuento}")
                 else:
                     cont = 0
             else:
