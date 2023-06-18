@@ -22,6 +22,7 @@ def Masientos():
                 print(f"{asiento:4}", end="")
         print("|")
 
+
 # Definicion de Funcion para datos de usuario o pasajero
 
 
@@ -39,17 +40,20 @@ def UsuarioNormal():
         or "BANCODUOC"
         or "bancoduoc"
     ):
-        descuento = (ANormal)*0.15
-        print("El valor NORMAL de éste pasaje es:", (ANormal-descuento))        
+        descuento = (ANormal) * 0.15
+        print("El valor NORMAL de éste pasaje es:", (ANormal - descuento))
     else:
         descuento = 0
-        print("El valor de éste pasaje es:", (ANormal))            
+        print("El valor de éste pasaje es:", (ANormal))
+
+
 def UsuarioVip():
     print("Ingrese sus datos correspondientes. ")
     RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
     NomUs = str(input("Ingrese su nombre completo: "))
     TelefUs = int(input("Ingrese su teléfono de contacto: "))
     BancoUs = str(input("Ingrese el nombre de su banco: "))
+
     if (
         BancoUs == "BancoDuoc"
         or "Bancoduoc"
@@ -58,12 +62,13 @@ def UsuarioVip():
         or "BANCODUOC"
         or "bancoduoc"
     ):
-        descuento = (AVip)*0.15
-        print("El valor VIP de éste pasaje es:", (AVip-descuento))             
+        descuento = (AVip) * 0.15
+        print("El valor VIP de éste pasaje es:", (AVip - descuento))
     else:
         descuento = 0
-        print("El valor de éste pasaje es:", (ANormal))                  
+        print("El valor de éste pasaje es:", (ANormal))
     # Primera interfaz de menú.
+
 
 def menu():
     while True:
@@ -73,7 +78,8 @@ def menu():
             print("1. Ver asientos disponibles.")
             print("2. Comprar asiento.")
             print("3. Anular vuelo.")
-            print("4. Salir.")
+            print("4. Modificar cambios.")
+            print("5. Salir.")
             OpMenu = int(input())
             if OpMenu == 1:
                 Masientos()
@@ -97,7 +103,7 @@ def menu():
                     confus = int(input())
                     if confus == 1:
                         UsuarioNormal()
-                        
+
                     else:
                         cont = 0
                 elif eleccion > 30 and eleccion <= 42:
@@ -123,8 +129,19 @@ def menu():
                 2.No
                 """
                 )
+                anulacion = int(input())
+                if anulacion == 1:
+                    print("Su anulación ha sido exitosa!")
+                else:
+                    print("Se ha cancelado su anulación!")
             elif OpMenu == 4:
-                print("Gracias por utilizar el programa.")                
+                print("Modificación de datos. ")
+                print("Porfavor ingrese su nombre: ")
+                print("Porfavor ingrese su asiento: ")
+                print("Bienvenido de nuevo!")
+
+            elif OpMenu == 5:
+                print("Gracias por utilizar el programa.")
                 break
 
         except ValueError:
