@@ -22,8 +22,7 @@ def Masientos():
                 print(f"{asiento:4}", end="")
         print("|")
 
-
-# Definicion de Funcion para datos de usuario o pasajero
+# Datos de usuario para ingresar en normal.
 
 
 def UsuarioNormal():
@@ -46,7 +45,7 @@ def UsuarioNormal():
         descuento = 0
         print("El valor de éste pasaje es:", (ANormal))
 
-
+# Datos de usuario para ingresar en Vip.
 def UsuarioVip():
     print("Ingrese sus datos correspondientes. ")
     RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
@@ -136,8 +135,8 @@ def menu():
                     print("Se ha cancelado su anulación!")
             elif OpMenu == 4:
                 print("Modificación de datos. ")
-                print("Porfavor ingrese su nombre: ")
-                print("Porfavor ingrese su asiento: ")
+                nomus = int(input("Porfavor ingrese su nombre: "))
+                eleccion = int(input("Porfavor ingrese su asiento: "))
                 print("Bienvenido de nuevo!")
 
             elif OpMenu == 5:
