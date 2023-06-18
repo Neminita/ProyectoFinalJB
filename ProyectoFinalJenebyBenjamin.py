@@ -6,6 +6,7 @@ columnas = 7
 ANormal = 78900
 AVip = 240000
 descuento = 0
+ValorTotal = 0
 
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
 
@@ -29,23 +30,15 @@ def DatosUsuario():
     RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
     NomUs = str(input("Ingrese su nombre completo: "))
     TelefUs = int(input("Ingrese su teléfono de contacto: "))
-    BancoUs = str(input("Ingrese el nombre de su banco: "))
-    if (
-        BancoUs == "BancoDuoc"
-        or "Bancoduoc"
-        or "bancoDuoc"
-        or "BancoDuoc"
-        or "BANCODUOC"
-        or "bancoduoc"
-    ):
-        descuento = (ANormal / 100) * 15
-        descuento2 = (AVip / 100) * 15
-    else:
-        descuento = 0
-
-    # Primera interfaz de menú.
-
-
+    print("""
+    Ingrese un tipo de banco.
+    1.BancoDuoc
+    2.BancoEstado
+    3.BancodeChile
+    4.Otro
+    """)
+    BancoUs = int(input())
+# Primera interfaz de menú.
 while True:
     try:
         cont = 0
@@ -67,6 +60,7 @@ while True:
                             asientos[i][j] = "   X"
                             break
             if eleccion >= 1 and eleccion <= 30:
+                TipoViaje = ANormal
                 print(
                     """
             ¿Quisiera confirmar su compra?
@@ -77,7 +71,7 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
-                    print(f"El valor de éste pasaje es: {ANormal-descuento}")
+                    print(f"El valor de éste pasaje es: {ValorTotal-descuento}")
                 else:
                     cont = 0
             elif eleccion > 30 and eleccion <= 42:
@@ -91,7 +85,7 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
-                    print(f"El valor de éste asiento VIP es: {AVip-descuento}")
+                    print(f"El valor de éste asiento VIP es: {ValorTotal-descuento}")
                 else:
                     cont = 0
             else:
