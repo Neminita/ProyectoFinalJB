@@ -43,6 +43,7 @@ def DatosUsuario():
 
 while True:
     try:
+        cont = 0
         print("Elija una opcion porfavor")
         print("1. Ver asientos disponibles.")
         print("2. Comprar asiento.")
@@ -72,6 +73,8 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
+                else:
+                    cont = 0
             elif eleccion > 30 and eleccion <= 42:
                 print(f"El valor de éste asiento VIP es: {AVip}")
                 print(
@@ -84,6 +87,8 @@ while True:
                 confus = int(input())
                 if confus == 1:
                     DatosUsuario()
+                else:
+                    cont = 0
             else:
                 print("El valor no se ha encontrado.")
         elif OpMenu == 3:
