@@ -3,10 +3,13 @@ print("Bienvenido a VuelosDuoc")
 print("---------------------------")
 filas = 6
 columnas = 7
+ANormal = 78900
+AVip = 240000
 
 asientos = [[(i * columnas + j + 1) for j in range(columnas)] for i in range(filas)]
 
 
+# Definicion de Funcion para crear el menú de asientos y sus arreglos
 def Masientos():
     for fila in asientos:
         print("|", end="")
@@ -16,6 +19,26 @@ def Masientos():
             else:
                 print(f"{asiento:4}", end="")
         print("|")
+
+        # Definicion de Funcion para datos de usuario o pasajero
+
+
+def DatosUsuario():
+    print("Ingrese sus datos correspondientes. ")
+    RutUs = int(input("Ingrese su rut sin guíon ni puntos: "))
+    if RutUs != int:
+        print("Formato inválido")
+    NomUs = str(input("Ingrese su nombre completo: "))
+    if NomUs != str:
+        print("Formato inválido.")
+    TelefUs = int(input("Ingrese su teléfono de contacto: "))
+    if TelefUs != int:
+        print("Formato inválido.")
+    BancoUs = str(input("Ingrese el nombre de su banco: "))
+    if BancoUs != str:
+        print("Formato inválido.")
+
+    # Primera interfaz de menú.
 
 
 while True:
@@ -37,8 +60,39 @@ while True:
                         if asiento == eleccion:
                             asientos[i][j] = "   X"
                             break
-        elif OpMenu == 4:
-            print("Gracias por Elegirnos")
-            break
+            if eleccion >= 1 and eleccion <= 30:
+                print(f"El valor de éste pasaje es: {ANormal}")
+                print(
+                    """
+            ¿Quisiera confirmar su compra?
+            1.Si
+            2.No
+            """
+                )
+                confus = int(input())
+                if confus == 1:
+                    DatosUsuario()
+            elif eleccion > 30 and eleccion <= 42:
+                print(f"El valor de éste asiento VIP es: {AVip}")
+                print(
+                    """
+            ¿Quisiera confirmar su compra?
+            1.Si
+            2.No
+            """
+                )
+                confus = int(input())
+                if confus == 1:
+                    DatosUsuario()
+            else:
+                print("El valor no se ha encontrado.")
+        elif OpMenu == 3:
+            print(
+                """
+            ¿Quisiera Anular envío?
+            1.Si
+            2.No
+            """
+            )
     except ValueError:
         print("INGRESE OPCIÓN VALIDA")
