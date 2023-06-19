@@ -137,9 +137,10 @@ def menu():
                     print("Se ha cancelado su anulación!")
             elif OpMenu == 4:
                 print("Modificación de datos. ")
-                nomus = int(input("Porfavor ingrese su nombre: "))
+                nom = int(input("Porfavor ingrese su nombre: "))
                 eleccion = int(input("Porfavor ingrese su asiento: "))
                 print("Bienvenido de nuevo!")
+
 
             elif OpMenu == 5:
                 print("Gracias por utilizar el programa.")
