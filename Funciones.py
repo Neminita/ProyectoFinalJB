@@ -167,14 +167,14 @@ def menu():
                     eleccion = int(input("Porfavor ingrese su asiento: "))
                     if eleccion in l_asiento: # Verifica que la variable elección esté dentro de la lista de asientos.
                         while True:
-                            print(''' 
+                            print(""" 
                                         Modificación de datos
                                 1) Modificar nombre.
                                 2) Modificar telefono.
                                 3) Listar datos.
                                 4) Salir.
                                     
-                                ''')
+                                """)
                             op = int(input("Ingrese una opción valida: "))
                             
                             if op == 1:
